@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <attribute name="class" value="configurator-two-columns"/>
+        <referenceContainer name="content">
+            <container name="two.columns.custom" htmlTag="div" htmlClass="two-columns-custom" before="-" />
+        </referenceContainer>
+
+        <move element="versand_product_block" destination="new.navigation" before="-" />
+        <move element="product.info.options.wrapper.bottom" destination="title.custom" after="-" />
+        <move element="product.info.media" destination="product.info.form.options" before="widget.selection" />
+        <move element="product.info.review" destination="page.main.title" after="-" />
+        <move element="product.attributes" destination="product.info.description" />
+
+        <referenceBlock name="product.info.addtocart.additional">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.delivery" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info" after="-">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getDeliveryTime</argument>
+                    <argument name="at_code" xsi:type="string">delivery_time</argument>
+                    <argument name="css_class" xsi:type="string">delivery-time</argument>
+                    <argument name="at_label" translate="true" xsi:type="string">Delivery Time</argument>
+                    <argument name="title" translate="true" xsi:type="string">Delivery Time</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
